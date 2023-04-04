@@ -1,0 +1,20 @@
+apiVersion: gateway.mulesoft.com/v1alpha1
+kind: Configuration
+metadata:
+  name: logging-config
+spec:
+  logging:
+    outputs:
+    - name: default
+      type: datadog
+      parameters:
+        Host: http-intake.logs.datadoghq.eu
+        TLS: on
+        apikey: b4286a9ceb29301da63e72465b49f***
+    runtimeLogs:
+      logLevel: info
+      outputs:
+      - default
+    accessLogs:
+      outputs:
+      - default
